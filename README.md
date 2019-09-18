@@ -2,18 +2,6 @@
 
 This is an small demo showing how to use Vector math to calculate the position, direction and rotation of a sprite. [You can view the demo live at https://kokodoko.github.io/VectorTanks/](https://kokodoko.github.io/VectorTanks/)
 
-## DOM element
-
-We're using a DOM element with transform to draw sprites. The CSS file contains the image and size of the tank.
-```css
-tank {
-    width: 100px; height: 70px;
-    background-image: url('../images/tank.png');
-    background-size: contain;
-    transform-origin: center;
-}
-```
-
 ## Vectors
 
 A Vector is an object with an X and Y coordinate. 
@@ -76,10 +64,26 @@ let angle = Math.atan2(direction.y, direction.x) * 180 / Math.PI
 div.style.transform = `translate(${this.position.x}px, ${this.position.y}px) rotate(${angle}deg)`
 ```
 
-
-## Project setup
+# Project setup
 
 The gameobject class does all the DOM rendering. The followMouse class updates the direction of the tank depending on the mouse position.
+
+## DOM element
+
+We're using a DOM elements and CSS to draw sprites. The CSS file contains the image and size of the tank.
+```css
+tank {
+    display:block;
+    position:absolute;
+    width: 100px; height: 70px;
+    background-image: url('../images/tank.png');
+    background-size: contain;
+}
+```
+
+## Game class
+
+Creating a `new Tank()` by code also adds a new `<tank></tank>` element in the DOM, by using `document.createElement("tank")`. Updating the tank instances with a `requestAnimationFrame` causes them to be drawn.
 
 ## Compiling
 
