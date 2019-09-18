@@ -9,7 +9,7 @@ class FollowMouse {
         this.gameobject = g
         this.targetPosition = new Vector2(200,200)
 
-        this.randomModifier = Math.random() * 40
+        this.randomModifier = Math.random() * 10
 
         this.callback = (e: Event) => this.onMouseMove(e as MouseEvent)
         window.addEventListener("mousemove", this.callback)

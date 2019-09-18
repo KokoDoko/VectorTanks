@@ -3,7 +3,7 @@ class Game {
     public gameObjects : GameObject[] = []
 
     constructor() {
-        for(let i = 0;i<10;i++){
+        for(let i = 0;i<3;i++){
             this.gameObjects.push(new Tank())
         }
         this.update()

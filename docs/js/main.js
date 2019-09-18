@@ -2,7 +2,7 @@
 class Game {
     constructor() {
         this.gameObjects = [];
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 3; i++) {
             this.gameObjects.push(new Tank());
         }
         this.update();
@@ -48,7 +48,7 @@ class FollowMouse {
     constructor(g) {
         this.gameobject = g;
         this.targetPosition = new Vector2(200, 200);
-        this.randomModifier = Math.random() * 40;
+        this.randomModifier = Math.random() * 10;
         this.callback = (e) => this.onMouseMove(e);
         window.addEventListener("mousemove", this.callback);
     }
