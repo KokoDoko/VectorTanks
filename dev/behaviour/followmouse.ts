@@ -1,12 +1,15 @@
-class FollowMouse implements Behaviour {
+class FollowMouse {
 
     private gameobject:GameObject
     private callback:EventListener
     private targetPosition:Vector2
+    private randomModifier:number // not needed but fun to give all tanks different speed
 
     constructor(g: GameObject){
         this.gameobject = g
         this.targetPosition = new Vector2(200,200)
+
+        this.randomModifier = Math.random() * 40
 
         this.callback = (e: Event) => this.onMouseMove(e as MouseEvent)
         window.addEventListener("mousemove", this.callback)
@@ -22,6 +25,8 @@ class FollowMouse implements Behaviour {
     public update() {
         // slow down when we reach the target position
         this.gameobject.speed = Vector2.getDistance(this.targetPosition, this.gameobject.position).magnitude()/35
+
+        this.gameobject.speed /= this.randomModifier // just for testing 
     }
 
 }

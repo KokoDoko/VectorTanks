@@ -2,7 +2,9 @@
 class Game {
     constructor() {
         this.gameObjects = [];
-        this.gameObjects.push(new Tank());
+        for (let i = 0; i < 10; i++) {
+            this.gameObjects.push(new Tank());
+        }
         this.update();
     }
     update() {
@@ -19,7 +21,7 @@ class GameObject {
         this.div = document.createElement(tag);
         parent.appendChild(this.div);
         this.div.style.backgroundImage = `url(images/${tag}.png)`;
-        this.position = new Vector2(200, 200);
+        this.position = new Vector2(Math.random() * window.innerWidth - 100, Math.random() * window.innerHeight - 100);
         this.speed = 0;
         this.direction = new Vector2(1, 1);
         this.offset = new Vector2(this.div.clientWidth / 2, this.div.clientHeight / 2);
@@ -46,6 +48,7 @@ class FollowMouse {
     constructor(g) {
         this.gameobject = g;
         this.targetPosition = new Vector2(200, 200);
+        this.randomModifier = Math.random() * 40;
         this.callback = (e) => this.onMouseMove(e);
         window.addEventListener("mousemove", this.callback);
     }
@@ -55,6 +58,7 @@ class FollowMouse {
     }
     update() {
         this.gameobject.speed = Vector2.getDistance(this.targetPosition, this.gameobject.position).magnitude() / 35;
+        this.gameobject.speed /= this.randomModifier;
     }
 }
 class Vector2 {

@@ -15,7 +15,7 @@ class GameObject {
         parent.appendChild(this.div)
 
         this.div.style.backgroundImage = `url(images/${tag}.png)`
-        this.position = new Vector2(200,200)
+        this.position = new Vector2(Math.random() * window.innerWidth - 100, Math.random() * window.innerHeight - 100)
         this.speed = 0
         this.direction = new Vector2(1,1)
         // half of width and height to calculate center

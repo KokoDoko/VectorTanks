@@ -2,7 +2,7 @@
 
 class Tank extends GameObject {
 
-    public behaviour:Behaviour
+    public behaviour:FollowMouse
 
     constructor() {
         super("tank")
