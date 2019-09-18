@@ -1,8 +1,8 @@
 # Using Vector Math in sprite games
 
-This is an small demo showing how to use Vector math to calculate the position and direction of a sprite.
+This is an small demo showing how to use Vector math to calculate the position, direction and rotation of a sprite.
 
-View at 
+[View at https://kokodoko.github.io/VectorTanks/](https://kokodoko.github.io/VectorTanks/)
 
 ## Vectors
 
