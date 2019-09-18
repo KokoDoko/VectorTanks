@@ -1,32 +1,55 @@
 # Using Vector Math in sprite games
 
-This is an small demo showing how to use Vector math to calculate the position, direction and rotation of a sprite.
+This is an small demo showing how to use Vector math to calculate the position, direction and rotation of a sprite. [You can view the demo live at https://kokodoko.github.io/VectorTanks/](https://kokodoko.github.io/VectorTanks/)
 
-[View at https://kokodoko.github.io/VectorTanks/](https://kokodoko.github.io/VectorTanks/)
+## DOM element
+
+We're using a DOM element with transform to draw sprites. The CSS file contains the image and size of the tank.
+```css
+tank {
+    width: 100px; height: 70px;
+    background-image: url('../images/tank.png');
+    background-size: contain;
+    transform-origin: center;
+}
+```
 
 ## Vectors
 
-A Vector is an object with an X and Y coordinate. We use this for the position of the tank and for the target we move towards.
+A Vector is an object with an X and Y coordinate. 
 
+```typescript
+class Vector2 {
+
+    public x: number
+    public y: number
+
+    ...
+}
 ```
+
+
+We use a Vector for the **position** of the tank and the position of the target we move towards.
+
+```typescript
 let position = new Vector2(200, 200)
 let target = new Vector(mouseX, mouseY)
 ```
 
-A normalised vector contains the *direction* towards that vector. Used for direction of the tank.
+A *normalised* vector contains the *direction* towards that vector. Used for direction of the tank towards the target.
 
-```
+```typescript
 let direction = target.normalise()
 ```
 
-Subtract two Vectors to get the distance between them as a Vector:
-```
+We can subtract two Vectors to get the distance between them (as a Vector)
+```typescript
 let distance =  Vector2.getDistance(this.targetPosition, this.gameobject.position)
 ```
 
-Magnitude means the length of a vector as a single number, we use this to reduce the speed of the tank when it closes in on the target.
+The magnitude means the distance as a single number. Use this to reduce the speed of the tank when it closes in on the target.
 
-```
+```typescript
 let speed = distance.magnitude()
 ```
 
@@ -35,7 +58,7 @@ let speed = distance.magnitude()
 ### Updating the position
 
 We multiply the direction with the speed, and add that to the current position. 
-```
+```typescript
 this.position = Vector2.add(this.position, Vector2.multiply(this.direction, this.speed))
 ```
 
@@ -44,12 +67,12 @@ this.position = Vector2.add(this.position, Vector2.multiply(this.direction, this
 
 To display the sprite we need an angle. 
 
-```
+```typescript
 let angle = Math.atan2(direction.y, direction.x) * 180 / Math.PI
 ```
 
 ### Draw using CSS transform
-```
+```typescript
 div.style.transform = `translate(${this.position.x}px, ${this.position.y}px) rotate(${angle}deg)`
 ```
 

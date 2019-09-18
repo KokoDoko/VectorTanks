@@ -9,15 +9,14 @@ class GameObject {
     public offset : Vector2
 
     constructor(tag: string) {
-        let parent: HTMLElement = (document.getElementsByTagName("game")[0]!) as HTMLElement
 
         this.div = document.createElement(tag)
-        parent.appendChild(this.div)
+        document.body.appendChild(this.div)
 
-        this.div.style.backgroundImage = `url(images/${tag}.png)`
         this.position = new Vector2(Math.random() * window.innerWidth - 100, Math.random() * window.innerHeight - 100)
         this.speed = 0
         this.direction = new Vector2(1,1)
+        
         // half of width and height to calculate center
         this.offset = new Vector2(this.div.clientWidth/2, this.div.clientHeight/2)
     }

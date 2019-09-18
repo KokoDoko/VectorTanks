@@ -17,10 +17,8 @@ class Game {
 window.addEventListener("load", () => new Game());
 class GameObject {
     constructor(tag) {
-        let parent = (document.getElementsByTagName("game")[0]);
         this.div = document.createElement(tag);
-        parent.appendChild(this.div);
-        this.div.style.backgroundImage = `url(images/${tag}.png)`;
+        document.body.appendChild(this.div);
         this.position = new Vector2(Math.random() * window.innerWidth - 100, Math.random() * window.innerHeight - 100);
         this.speed = 0;
         this.direction = new Vector2(1, 1);

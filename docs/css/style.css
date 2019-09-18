@@ -24,7 +24,7 @@ game {
 
 tank {
     width: 100px; height: 70px;
-    background-image: url('../images/fenton.png');
+    background-image: url('../images/tank.png');
     background-size: contain;
     transform-origin: center;
 }
