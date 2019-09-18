@@ -24,18 +24,18 @@ let position = new Vector2(200, 200)
 let target = new Vector(mouseX, mouseY)
 ```
 
-A *normalised* vector contains the *direction* towards that vector. Used for direction of the tank towards the target.
-
-```typescript
-let direction = target.normalise()
-```
-
 We can subtract two Vectors to get the distance between them (as a Vector)
 ```typescript
 let distance =  Vector2.getDistance(this.targetPosition, this.gameobject.position)
 ```
 
-The magnitude means the distance as a single number. Use this to reduce the speed of the tank when it closes in on the target.
+A *normalised* vector contains the *direction* towards that vector. Used for direction of the tank towards the target.
+
+```typescript
+let direction = distance.normalise()
+```
+
+The magnitude converts the distance to a single number. Use this to reduce the speed of the tank when it closes in on the target.
 
 ```typescript
 let speed = distance.magnitude()
