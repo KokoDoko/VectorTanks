@@ -29,7 +29,7 @@ class Vector2 {
     }
 
     public magnitude(): number {
-        return Math.max(Math.sqrt(this.x * this.x + this.y * this.y), 0.0001) // to prevent divide by 0
+        return Math.max(Math.sqrt(this.x * this.x + this.y * this.y), 0.0001) // hotfix to prevent dividing by 0
     }
 
     public normalize(): Vector2 {

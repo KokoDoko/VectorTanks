@@ -26,7 +26,7 @@ class FollowMouse {
         // slow down when we reach the target position
         this.gameobject.speed = Vector2.getDistance(this.targetPosition, this.gameobject.position).magnitude()/35
 
-        this.gameobject.speed /= this.randomModifier // just for testing 
+        this.gameobject.speed /= this.randomModifier // not needed - just for testing 
     }
 
 }
